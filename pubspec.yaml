@@ -43,6 +43,7 @@ dependencies:
   path_provider: ^2.0.14
   connectivity_plus: ^3.0.3
   fluttertoast: ^8.2.1
+  animate_do: ^3.0.2
 
 dev_dependencies:
   hive_generator:

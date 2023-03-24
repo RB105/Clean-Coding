@@ -2,6 +2,7 @@ import 'package:clean_architecture/cubit/home_state.dart';
 import 'package:clean_architecture/data/model/users_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:animate_do/animate_do.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -22,9 +23,13 @@ class HomePage extends StatelessWidget {
             } else if (state is HomeErrorState) {
               return Center(child: Text(state.error.toString()));
             } else if (state is HomeOnlineState) {
-              return UsersList(data: state.data);
+              return FadeIn(
+                duration: const Duration(seconds: 3),
+                child: UsersList(data: state.data));
             } else if (state is HomeOfflineState) {
-              return UsersList(data: state.box);
+              return FadeInUp(
+                duration: const Duration(seconds: 3),
+                child: UsersList(data: state.box));
             } else {
               return const SizedBox();
             }
