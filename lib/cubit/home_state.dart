@@ -1,5 +1,9 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
-import 'package:hive/hive.dart';
+import 'package:clean_architecture/data/service/project_service.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../data/model/users_model.dart';
 import '../data/repository/home_repository.dart';
@@ -24,7 +28,12 @@ class HomeErrorState extends HomeState {
   HomeErrorState(this.error);
 }
 
-class HomeCompleteState extends HomeState {
+class HomeOfflineState extends HomeState {
+  List<UsersModel> box;
+  HomeOfflineState(this.box);
+}
+
+class HomeOnlineState extends HomeState{
   List<UsersModel> data;
-  HomeCompleteState(this.data);
+  HomeOnlineState(this.data);
 }
